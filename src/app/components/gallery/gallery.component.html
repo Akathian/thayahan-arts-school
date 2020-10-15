@@ -12,7 +12,7 @@
     <div class='row p-4'>
         <div class='col mx-1' [@listAnimation]="images1.length">
             <div class='row mb-2' *ngFor='let image of images1; let i=index'>
-              <img  width="100%" [src]="image" alt="Card image cap" style="border-radius: 1%;">
+              <img width="100%" height="auto" [src]="image" alt="Card image cap" style="border-radius: 1%;">
             </div>
           </div>
           <div class='col mx-1' [@listAnimation]="images2.length">

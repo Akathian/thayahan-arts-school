@@ -20,5 +20,13 @@ select {
     border: 0px;
     cursor: pointer;
     position: relative;
+}
 
+.container {
+    align-items: flex-start;
+    /* new */
+}
+
+img {
+    height: 100% !important;
 }
