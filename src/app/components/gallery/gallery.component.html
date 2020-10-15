@@ -1,0 +1,31 @@
+<body id='window' class="d-flex text-center justify-content-center">
+  <h3 class="align-self-center">
+    <select  (change)='onEventSelected($event)'>
+      <option *ngFor='let event of options' [value]='event'>
+          {{event}}
+      </option>
+  </select>
+  </h3>
+
+</body>
+<div class="container">
+    <div class='row p-4'>
+        <div class='col mx-1' [@listAnimation]="images1.length">
+            <div class='row mb-2' *ngFor='let image of images1; let i=index'>
+              <img  width="100%" [src]="image" alt="Card image cap" style="border-radius: 1%;">
+            </div>
+          </div>
+          <div class='col mx-1' [@listAnimation]="images2.length">
+            <div class='row mb-2' *ngFor='let image of images2; let j=index'>
+              <img  width="100%" [src]="image" alt="Card image cap"
+                style="border-radius: 1%;">
+            </div>
+          </div>
+          <div class='col mx-1' [@listAnimation]="images3.length">
+            <div class='row mb-2' *ngFor='let image of images3; let k=index'>
+              <img width="100%" [src]="image" alt="Card image cap"
+                style="border-radius: 1%;">
+            </div>
+          </div>
+    </div>
+</div>
