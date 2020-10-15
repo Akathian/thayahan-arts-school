@@ -3,3 +3,13 @@ img {
     top: -5em;
     left: 2em
 }
+
+.nav-item:hover {
+    background: #8dbdd8;
+    cursor: pointer;
+}
+
+.nav-item {
+    transition: background 0.7s;
+
+}
