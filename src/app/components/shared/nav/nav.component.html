@@ -1,48 +1,59 @@
 <div class="col p-0">
-    <div class='row p-2 text-white' style="background: #68a7ca;">
-        
-        <h3 class='mb-0 mt-5' style="margin-left: 6em; margin-top: 1em;">
-            Thayahan Arts School<br>
-          </h3>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4390bc;">
-       <h3 class='mt-0 text-white' style="margin-left: 5.25em;">
-        <small>தாயகன் ஓவியக் கல்லூரி</small>
-       </h3> 
-
-        <img height="120x" class="rounded-circle mr-3" src='../../../../assets/logo.png' > 
-        <button class="navbar-toggler" type="button"
-                (click)="toggleNavbar()">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-      
-        <div class="collapse navbar-collapse"
-             [ngClass]="{ 'show': navbarOpen }">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item text-center">
-              <a class="nav-link text-white" routerLink='/'>நல்வரவு</a>
-            </li>
-            <li class="nav-item text-center">
-                <a class="nav-link text-white" routerLink='about'>நாம் யார்</a>
-            </li>
-            <li class="nav-item text-center">
-                <a class="nav-link text-white" routerLink='gallery'>படங்கள்</a>
-              </li>
-              <li class="nav-item text-center">
-                <a class="nav-link text-white" routerLink='classes'>வகுப்புகள்</a>
-              </li>
-              <li class="nav-item text-center">
-                <a class="nav-link text-white" routerLink='competitions'>போட்டிகள்</a>
-              </li>
-              <li class="nav-item text-center">
-                <a class="nav-link text-white" routerLink="/contact">தொடர்புகள்</a>
-              </li>
-          </ul>
+  <div class="row top-row m-0" style="background: #68a7ca">
+    <div class="col logo-group">
+      <div class="row p-2 text-white m-0 align-items-center">
+        <div class="">
+          <img
+            height="100x"
+            class="rounded-circle mr-3 p-2"
+            src="../../../../assets/logo.png"
+          />
         </div>
-      </nav>
+        <div class="">
+          <div class="row">
+            <h3 class="">Thayahan Arts School</h3>
+          </div>
+          <div class="row">
+            <h3 class="mt-0 text-white">
+              <small>தாயகன் ஓவியக் கல்லூரி</small>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: #4390bc">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <span style="visibility: hidden">a</span>
+      <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" [ngClass]="{ show: navbarOpen }">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="/">நல்வரவு</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="about">நாம் யார்</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="gallery">படங்கள்</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="classes">வகுப்புகள்</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="competitions"
+              >போட்டிகள்</a
+            >
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link text-white" routerLink="/contact">தொடர்புகள்</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </div>
-
-
-
-

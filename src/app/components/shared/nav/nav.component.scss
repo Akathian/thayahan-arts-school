@@ -1,8 +1,8 @@
-img {
-    position: absolute;
-    top: -5em;
-    left: 2em
-}
+// img {
+//     position: absolute;
+//     top: -5em;
+//     left: 2em
+// }
 
 .nav-item:hover {
     background: #8dbdd8;
@@ -12,4 +12,21 @@ img {
 .nav-item {
     transition: background 0.7s;
 
+}
+
+h3 {
+    font-size: min(1.17em, 4vmin);
+}
+
+.logo-group {
+    z-index: 2;
+    transform: translate(0, 20px);
+}
+
+.top-row {
+    height: 75px;
+}
+
+.navbar {
+    z-index: 3;
 }
