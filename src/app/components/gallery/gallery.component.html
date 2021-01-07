@@ -1,31 +1,56 @@
-<body id='window' class="d-flex text-center justify-content-center">
+<body id="window" class="d-flex text-center justify-content-center">
   <h3 class="align-self-center">
-    <select  (change)='onEventSelected($event)'>
-      <option *ngFor='let event of options' [value]='event'>
-          {{event}}
-      </option>
-  </select>
+    <select (change)="onEventSelected($event.target.value)" id="catChoose">
+      <option value="all">All</option>
+      <option value="malarum-vannangal-2017">Malarum Vannangal 2017</option>
+      <option value="malarum-vannangal-2018">Malarum Vannangal 2018</option>
+      <option value="malarum-vannangal-2019">Malarum Vannangal 2019</option>
+    </select>
   </h3>
-
 </body>
-<div class="container">
-    <div class='row p-4'>
-        <div class='col mx-1' [@listAnimation]="images1.length">
-            <div class='row mb-2' *ngFor='let image of images1; let i=index'>
-              <img width="100%" height="auto" [src]="image" alt="Card image cap" style="border-radius: 1%;">
-            </div>
-          </div>
-          <div class='col mx-1' [@listAnimation]="images2.length">
-            <div class='row mb-2' *ngFor='let image of images2; let j=index'>
-              <img  width="100%" [src]="image" alt="Card image cap"
-                style="border-radius: 1%;">
-            </div>
-          </div>
-          <div class='col mx-1' [@listAnimation]="images3.length">
-            <div class='row mb-2' *ngFor='let image of images3; let k=index'>
-              <img width="100%" [src]="image" alt="Card image cap"
-                style="border-radius: 1%;">
-            </div>
-          </div>
+<!-- <div class="container">
+  <div class="row p-4">
+    <div class="col mx-1" [@listAnimation]="images1.length">
+      <div class="row mb-2" *ngFor="let image of images1; let i = index">
+        <img
+          width="100%"
+          height="auto"
+          [src]="image"
+          alt="Card image cap"
+          style="border-radius: 1%"
+        />
+      </div>
     </div>
-</div>
+    <div class="col mx-1" [@listAnimation]="images2.length">
+      <div class="row mb-2" *ngFor="let image of images2; let j = index">
+        <img
+          width="100%"
+          [src]="image"
+          alt="Card image cap"
+          style="border-radius: 1%"
+        />
+      </div>
+    </div>
+    <div class="col mx-1" [@listAnimation]="images3.length">
+      <div class="row mb-2" *ngFor="let image of images3; let k = index">
+        <img
+          width="100%"
+          [src]="image"
+          alt="Card image cap"
+          style="border-radius: 1%"
+        />
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<ngx-masonry [options]="options" [ordered]="true">
+  <div
+    ngxMasonryItem
+    class="brick col-4 my-2"
+    *ngFor="let image of images[option]; let i = index"
+    [prepend]="image.prepend"
+  >
+    <img width="100%" [src]="image" alt="image" style="border-radius: 1%" />
+  </div>
+</ngx-masonry>

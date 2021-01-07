@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate, query, stagger, keyframes } from '@angular/animations';
-
+import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery'
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -22,16 +23,16 @@ import { trigger, transition, style, animate, query, stagger, keyframes } from '
 })
 export class GalleryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,) { }
   option = 'All';
-  options = ['All', "Malarum Vannangal 2017", 'Malarum Vannangal 2018', "Malarum Vannangal 2019"]
+  options = ['all', "malarum-vannangal-2017", 'malarum-vannangal-2018', "malarum-vannangal-2019"]
   images1 = [];
   images2 = [];
   images3 = [];
   eventSelected: String;
 
   images = {
-    "All": [
+    "all": [
       'https://i.imgur.com/hVUWtdr.jpg',
       'https://i.imgur.com/ZC04cIc.jpg',
       'https://i.imgur.com/OmO1Khq.jpg',
@@ -341,7 +342,7 @@ export class GalleryComponent implements OnInit {
       'https://i.imgur.com/pqTIKhB.jpg',
       'https://i.imgur.com/ZPztDy6.jpg',
     ],
-    "Malarum Vannangal 2017": [
+    "malarum-vannangal-2017": [
       'https://i.imgur.com/hVUWtdr.jpg',
       'https://i.imgur.com/ZC04cIc.jpg',
       'https://i.imgur.com/OmO1Khq.jpg',
@@ -367,7 +368,7 @@ export class GalleryComponent implements OnInit {
       'https://i.imgur.com/VbsDDwy.jpg',
       'https://i.imgur.com/UTUlvs6.jpg',
     ],
-    'Malarum Vannangal 2018': [
+    'malarum-vannangal-2018': [
       'https://i.imgur.com/7Ku5S0K.jpg',
       'https://i.imgur.com/3wZ1GUj.jpg',
       'https://i.imgur.com/bkKPzET.jpg',
@@ -382,7 +383,7 @@ export class GalleryComponent implements OnInit {
       'https://i.imgur.com/Hrd8BcE.jpg',
       'https://i.imgur.com/09FbieY.jpg',
     ],
-    "Malarum Vannangal 2019": [
+    "malarum-vannangal-2019": [
       'https://i.imgur.com/gOL8YFP.jpg',
       'https://i.imgur.com/MzM68Ao.jpg',
       'https://i.imgur.com/RridgMb.jpg',
@@ -657,18 +658,19 @@ export class GalleryComponent implements OnInit {
     ]
   }
   ngOnInit() {
-    this.initImages(this.option)
+    this.route.paramMap.subscribe(params => {
+      this.option = params.get('option')
+      if (Object.keys(this.images).indexOf(this.option) !== -1) {
+        this.initImages(this.option)
+        $('#catChoose').val(this.option)
+      } else {
+        window.location.href = '/gallery/all'
+      }
+    })
   }
 
   initImages(opt) {
-    console.log(typeof (opt))
-    console.log(this.images[opt])
-    let a = this.shuffle(this.images[opt])
-    let chunks = this.chunk(a, 3)
-    this.images1 = chunks[0]
-    this.images2 = chunks[1]
-    this.images3 = chunks[2]
-    return
+    this.shuffle(this.images[opt])
   }
 
   shuffle(array) {
@@ -690,32 +692,7 @@ export class GalleryComponent implements OnInit {
     return array;
   }
 
-  chunk(items, n) {
-    const result = [[], [], []]; // we create it, then we'll fill it
-    const wordsPerLine = Math.ceil(items.length / 3);
-
-    for (let line = 0; line < n; line++) {
-      for (let i = 0; i < wordsPerLine; i++) {
-        const value = items[i + line * wordsPerLine];
-        if (!value) { continue; } // avoid adding "undefined" values
-        result[line].push(value);
-      }
-    }
-    if ((result[1].length - result[2].length) > 1) {
-      result[2].push(result[1].pop());
-    }
-
-    return result;
-  }
-
   onEventSelected(event) {
-    for (let i = 0; i < this.options.length; i++) {
-      let opt = event.srcElement[i]
-      if (opt.selected) {
-        this.option = opt.outerText.trim()
-        this.initImages(this.option)
-        break;
-      }
-    }
+    window.location.href = 'gallery/' + event
   }
 }

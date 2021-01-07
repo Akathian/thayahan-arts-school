@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactComponent } from './components/contact/contact.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HomeComponent } from './components/home/home.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 import { RouterModule } from '@angular/router';
 
@@ -31,12 +32,13 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxMasonryModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
       { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
       { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
       { path: 'competitions', component: CompetitionsComponent, data: { animation: 'CompetitionsPage' } },
-      { path: 'gallery', component: GalleryComponent, data: { animation: 'GalleryPage' } },
+      { path: 'gallery/:option', component: GalleryComponent, data: { animation: 'GalleryPage' } },
       { path: 'classes', component: ClassesComponent, data: { animation: 'ClassesPage' } },
     ]),
   ],

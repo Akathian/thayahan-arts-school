@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
   { path: 'contact', component: ContactComponent, data: { animation: 'ContactPage' } },
   { path: 'competitions', component: CompetitionsComponent, data: { animation: 'CompetitionsPage' } },
-  { path: 'gallery', component: GalleryComponent, data: { animation: 'GalleryPage' } },
+  { path: 'gallery/:option', component: GalleryComponent, data: { animation: 'GalleryPage' } },
   { path: 'classes', component: ClassesComponent, data: { animation: 'ClassesPage' } },
 
 ];
